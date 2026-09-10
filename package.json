@@ -1,0 +1,18 @@
+{
+  "name": "codealpha-ecommerce-store",
+  "version": "1.0.0",
+  "description": "CodeAlpha Ecommerce Store with products, auth, cart, checkout, and orders",
+  "main": "server.js",
+  "scripts": {
+    "build:sites": "node scripts/build-sites.js",
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "codealpha",
+    "ecommerce",
+    "retail"
+  ],
+  "author": "",
+  "license": "MIT"
+}

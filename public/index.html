@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeAlpha Ecommerce Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <div class="splash-screen" id="splashScreen" aria-label="Loading CodeAlpha Ecommerce Store">
+      <div class="splash-card">
+        <span class="splash-logo">CA</span>
+        <span class="splash-kicker">CodeAlpha Ecommerce Store</span>
+        <strong>Preparing the store</strong>
+        <div class="splash-loader" aria-hidden="true"><span></span></div>
+      </div>
+    </div>
+
+    <div class="promo-strip">
+      <span>Curated lifestyle technology</span>
+      <strong>Private accounts, refined checkout, reliable dispatch</strong>
+      <span>Priority delivery on studio selections</span>
+    </div>
+
+    <header class="topbar">
+      <div class="nav-shell">
+        <a class="brand" href="#home" aria-label="CodeAlpha Ecommerce Store home">
+          <span class="brand-mark">CA</span>
+          <span>
+            <strong>CodeAlpha Store</strong>
+            <small>Ecommerce marketplace</small>
+          </span>
+        </a>
+        <nav class="nav">
+          <a href="#home">Home</a>
+          <a href="#catalog">Shop</a>
+          <a href="#orders">Orders</a>
+          <a href="#support">Support</a>
+        </nav>
+        <div class="top-actions">
+          <button class="ghost-button" id="authButton" type="button">Sign in</button>
+          <button class="cart-button" id="cartButton" type="button" aria-label="Open cart">
+            <span>Cart</span>
+            <strong id="cartCount">0</strong>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <span class="eyebrow">Featured Edit 2026</span>
+          <h1>Objects that make work, travel, and downtime feel sharper.</h1>
+          <p>CodeAlpha Ecommerce Store brings together refined tech accessories, desk upgrades, audio gear, and everyday carry pieces in a store experience built for confident shopping.</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#catalog">Shop the edit</a>
+            <button class="secondary-button" id="quickLoginButton" type="button">Create profile</button>
+          </div>
+          <div class="stats">
+            <span><strong id="statProducts">0</strong> Curated picks</span>
+            <span><strong>Private</strong> Customer profiles</span>
+            <span><strong>Fast</strong> Checkout flow</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80" alt="">
+          <div class="hero-receipt">
+            <span>Store basket</span>
+            <strong id="heroOrder">Ready when you are</strong>
+          </div>
+          <div class="floating-card top-card">
+            <strong>Editor selection</strong>
+            <span>Audio, desk, travel, everyday carry</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-band" aria-label="Store highlights">
+        <article>
+          <span>01</span>
+          <strong>Considered Selection</strong>
+          <p>Useful products chosen for daily performance and long-term value.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <strong>Member Profiles</strong>
+          <p>Save your details and return to past orders without friction.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <strong>Clear Fulfilment</strong>
+          <p>Checkout, totals, payment choice, and order status stay easy to follow.</p>
+        </article>
+      </section>
+
+      <section class="toolbar" id="catalog">
+        <div>
+          <span class="eyebrow">The Catalog</span>
+          <h2>Selected For Modern Routines</h2>
+        </div>
+        <div class="filters">
+          <label class="search">
+            <span>Search</span>
+            <input id="searchInput" type="search" placeholder="Find headphones, watches, bags...">
+          </label>
+          <label class="select">
+            <span>Category</span>
+            <select id="categorySelect"></select>
+          </label>
+        </div>
+      </section>
+
+      <section class="product-grid" id="productGrid" aria-live="polite"></section>
+
+      <section class="orders-panel" id="orders">
+        <div>
+          <span class="eyebrow">Account Desk</span>
+          <h2>Order History</h2>
+        </div>
+        <div id="ordersList" class="orders-list"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="support">
+      <div class="footer-grid">
+        <div>
+          <a class="brand footer-brand" href="#home" aria-label="CodeAlpha Ecommerce Store home">
+            <span class="brand-mark">CA</span>
+            <span>
+              <strong>CodeAlpha Store</strong>
+              <small>Ecommerce marketplace</small>
+            </span>
+          </a>
+          <p>A focused marketplace for premium desk tools, smart accessories, travel upgrades, and everyday technology with a buying experience that feels calm, polished, and reliable.</p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <a href="#catalog">Catalog</a>
+          <a href="#orders">Order History</a>
+          <a href="#home">Home</a>
+        </div>
+        <div>
+          <h3>Service</h3>
+          <span>Member profiles</span>
+          <span>Secure checkout</span>
+          <span>Order tracking</span>
+          <span>Stock-aware catalog</span>
+        </div>
+        <div>
+          <h3>Store Notes</h3>
+          <span>Curated product drops</span>
+          <span>Clean account experience</span>
+          <span>Responsive storefront</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>2026 CodeAlpha Ecommerce Store</span>
+        <span>Built for polished online retail</span>
+      </div>
+    </footer>
+
+    <aside class="drawer" id="cartDrawer" aria-hidden="true">
+      <div class="drawer-backdrop" data-close></div>
+      <section class="drawer-panel" aria-label="Shopping cart">
+        <header class="drawer-header">
+          <div>
+            <span class="eyebrow">Checkout</span>
+            <h2>Your Cart</h2>
+          </div>
+          <button class="icon-button" type="button" data-close aria-label="Close cart">x</button>
+        </header>
+        <div class="cart-items" id="cartItems"></div>
+        <form class="checkout-form" id="checkoutForm">
+          <label>
+            Delivery address
+            <textarea id="addressInput" rows="3" placeholder="House number, street, city, postal code"></textarea>
+          </label>
+          <label>
+            Payment method
+            <select id="paymentInput">
+              <option value="">Select payment</option>
+              <option>Cash on Delivery</option>
+              <option>Debit/Credit Card</option>
+              <option>Digital Wallet</option>
+            </select>
+          </label>
+          <div class="totals">
+            <span>Subtotal <strong id="subtotalText">$0.00</strong></span>
+            <span>Shipping <strong id="shippingText">$0.00</strong></span>
+            <span>Tax <strong id="taxText">$0.00</strong></span>
+            <span class="grand">Total <strong id="totalText">$0.00</strong></span>
+          </div>
+          <button class="primary-button full" type="submit">Place order</button>
+        </form>
+      </section>
+    </aside>
+
+    <aside class="modal" id="productModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <section class="modal-panel" id="productDetail" aria-label="Product detail"></section>
+    </aside>
+
+    <aside class="modal" id="authModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-auth></div>
+      <section class="auth-panel" aria-label="Authentication">
+        <div class="auth-visual" aria-hidden="true">
+          <div class="orbital-stage">
+            <span class="orbit-ring ring-one"></span>
+            <span class="orbit-ring ring-two"></span>
+            <span class="cube cube-one"></span>
+            <span class="cube cube-two"></span>
+            <span class="cube cube-three"></span>
+            <div class="glass-token">
+              <strong>CA</strong>
+              <span>Private Store Access</span>
+            </div>
+          </div>
+          <div class="auth-points">
+            <span>Encrypted session</span>
+            <span>Private checkout</span>
+            <span>Order tracking</span>
+          </div>
+        </div>
+        <div class="auth-content">
+          <header class="auth-header">
+            <div>
+              <span class="eyebrow">Store Account</span>
+              <h2 id="authTitle">Sign in</h2>
+              <p id="authSubtitle">Access faster checkout, saved order history, and member-only account tools.</p>
+            </div>
+            <button class="icon-button" type="button" data-close-auth aria-label="Close sign in">x</button>
+          </header>
+          <form id="authForm" class="auth-form">
+            <label id="nameField">
+              Name
+              <input id="nameInput" type="text" placeholder="Your name">
+            </label>
+            <label>
+              Email
+              <input id="emailInput" type="email" placeholder="you@example.com" required>
+            </label>
+            <label>
+              Password
+              <input id="passwordInput" type="password" placeholder="Minimum 6 characters" required>
+            </label>
+            <button class="primary-button full" type="submit" id="authSubmit">Sign in</button>
+          </form>
+          <section class="account-view" id="accountView" aria-live="polite">
+            <div class="profile-card">
+              <span class="profile-avatar" id="profileAvatar">CC</span>
+              <div>
+                <strong id="profileName">Customer</strong>
+                <span id="profileEmail">customer@example.com</span>
+              </div>
+            </div>
+            <div class="account-actions">
+              <button class="secondary-button full" id="viewOrdersButton" type="button">View order history</button>
+              <button class="danger-button full" id="signOutButton" type="button">Sign out securely</button>
+            </div>
+          </section>
+          <button class="link-button" id="toggleAuth" type="button">Need an account? Register</button>
+        </div>
+      </section>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="/app.js"></script>
+  </body>
+</html>
