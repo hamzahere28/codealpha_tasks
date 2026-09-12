@@ -1,0 +1,102 @@
+{
+  "users": [
+    {
+      "id": "u-100",
+      "name": "Areeba Khan",
+      "username": "areebak",
+      "email": "areeba@example.com",
+      "passwordHash": "168347cd9834e8465e21acc925f13d34:41024eeac3cc56e58d8d46ac172bc7a2872eb917d42d71c77e66a33f7bf532ebaa69608068e68ac61038de9ec2b3a999417a0b88950732734c2d3d12f99a8b0d",
+      "bio": "Product designer exploring calm interfaces, visual systems, and everyday creativity.",
+      "role": "Product Designer",
+      "location": "Lahore, PK",
+      "avatar": "AK",
+      "createdAt": "2026-08-28T10:00:00.000Z",
+      "following": [
+        "u-101",
+        "u-102"
+      ]
+    },
+    {
+      "id": "u-101",
+      "name": "Hamza Talha",
+      "username": "hamzadev",
+      "email": "hamza@example.com",
+      "passwordHash": "4b097642602297bc5fb8d316164835cf:c2069cab31a8f93250bd58e97c12a3235c196c48c404609f081b5c060a8f7cc284993d3312566b81ef1a4eafabfeae3d04d375bd193bb29ca2e4b3111a2afef4",
+      "bio": "Full-stack developer building polished web apps and useful product experiences.",
+      "role": "Full-Stack Developer",
+      "location": "Karachi, PK",
+      "avatar": "HT",
+      "createdAt": "2026-08-29T11:15:00.000Z",
+      "following": [
+        "u-100"
+      ]
+    },
+    {
+      "id": "u-102",
+      "name": "Sara Malik",
+      "username": "saram",
+      "email": "sara@example.com",
+      "passwordHash": "aa6f91de55e3dc93e72bfc3def8fd7a6:9da58b3af4102bc70c4c29b3a102326f115e40b7d33516774abcfe8b701f177910c4ad2212d18fa0dde3885158cbbb1900f7d59b04c753c167c67f0ab6c0420f",
+      "bio": "Community lead sharing digital culture, startups, and collaboration notes.",
+      "role": "Community Manager",
+      "location": "Islamabad, PK",
+      "avatar": "SM",
+      "createdAt": "2026-08-30T08:30:00.000Z",
+      "following": [
+        "u-101"
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "id": "post-100",
+      "userId": "u-101",
+      "content": "A small win this week: the side project that lived in my notes for three months finally has its first real users.\n\nThe biggest lesson? Share your work before you think it is ready. The conversations are where the useful ideas begin. What did you ship this week?",
+      "mood": "Build logs",
+      "createdAt": "2026-09-08T12:30:00.000Z",
+      "likes": [
+        "u-100",
+        "u-102"
+      ],
+      "comments": [
+        {
+          "id": "c-100",
+          "userId": "u-100",
+          "content": "That first bit of real feedback changes everything. Congratulations on getting it out there!",
+          "createdAt": "2026-09-08T13:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "post-101",
+      "userId": "u-100",
+      "content": "Spent the morning away from my usual desk, with a sketchbook and no notifications. Came back with fewer ideas, but much better ones.\n\nA reminder to myself: a change of surroundings counts as part of the work, too.",
+      "mood": "Design notes",
+      "createdAt": "2026-09-09T09:10:00.000Z",
+      "likes": [
+        "u-101"
+      ],
+      "comments": []
+    },
+    {
+      "id": "post-102",
+      "userId": "u-102",
+      "content": "A question for the makers, the late-night thinkers, and everyone figuring it out as they go:\n\nWhat is one thing you learned recently that you wish someone had told you a year ago?\n\nMine: you do not need a finished project to have something worth sharing.",
+      "mood": "Community",
+      "createdAt": "2026-09-09T16:20:00.000Z",
+      "likes": [
+        "u-100",
+        "u-101"
+      ],
+      "comments": [
+        {
+          "id": "c-101",
+          "userId": "u-101",
+          "content": "Ask for feedback while there is still room to change direction. It has saved me weeks of work.",
+          "createdAt": "2026-09-09T16:50:00.000Z"
+        }
+      ]
+    }
+  ],
+  "sessions": []
+}

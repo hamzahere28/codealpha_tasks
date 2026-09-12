@@ -1,0 +1,167 @@
+/* Header finish: raised branding, inset navigation, and restrained surface depth. */
+.topbar {
+  height: 100px;
+  gap: 24px;
+  color: #f0f4ee;
+  background: linear-gradient(115deg, #303a34 0%, #202923 48%, #29332e 100%);
+  border-top: 1px solid #607064;
+  border-bottom: 1px solid #161f19;
+  box-shadow: inset 0 1px 0 #ffffff12, 0 3px 0 #a6b5a625, 0 10px 24px #18251d16;
+  isolation: isolate;
+}
+.topbar::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 4%;
+  width: 180px;
+  height: 2px;
+  background: linear-gradient(90deg, #c5efa0, #c5efa000);
+  pointer-events: none;
+}
+.topbar .brand {
+  gap: 15px;
+  font-size: 24px;
+  text-shadow: 0 2px 1px #0005;
+}
+.topbar .brand-symbol {
+  width: 53px;
+  height: 53px;
+  justify-content: center;
+  border: 1px solid #dffbb9;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #ecffd5, #c4ea9b 50%, #9ac369);
+  box-shadow: inset 0 2px 1px #ffffffbc, inset 0 -3px 3px #54753655, 0 4px 0 #739254, 0 8px 16px #0005;
+  color: #2c442b;
+  text-shadow: 0 1px 0 #edffd1;
+  font-size: 35px;
+  transform: perspective(400px) rotateY(-9deg) rotateZ(-5deg);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.topbar .brand-symbol span { color: #426138; }
+.topbar .brand:hover .brand-symbol {
+  transform: perspective(400px) rotateY(9deg) rotateZ(2deg) translateY(-2px);
+  box-shadow: inset 0 2px 1px #fff9, inset 0 -3px 3px #54753655, 0 5px 0 #739254, 0 11px 18px #0005;
+}
+.topbar .brand small {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 9px;
+  font-size: 9px;
+  color: #b2c1ae;
+  text-shadow: none;
+}
+.topbar .brand small::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: #bdd991;
+}
+.topbar .topnav {
+  align-self: center;
+  gap: 4px;
+  margin-left: 12px;
+  height: 46px;
+  padding: 5px;
+  border: 1px solid #ffffff0c;
+  border-bottom-color: #ffffff18;
+  border-radius: 8px;
+  background: #111b165c;
+  box-shadow: inset 0 2px 5px #0004, 0 1px 0 #ffffff08;
+}
+.topbar .topnav button {
+  padding: 0 15px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #b8c3ba;
+  transition: color .2s, background .2s, box-shadow .2s, transform .2s;
+}
+.topbar .topnav button:hover {
+  color: #fff;
+  background: #ffffff0c;
+  transform: translateY(-1px);
+}
+.topbar .topnav button.active {
+  color: #f1f9e7;
+  background: linear-gradient(180deg, #54614f, #3c4839);
+  border-color: #82917360;
+  box-shadow: inset 0 1px 0 #ffffff26, 0 2px 3px #0005;
+}
+.topbar .topnav button.active::after { display: none; }
+.topbar .search {
+  padding: 11px 14px;
+  background: #17221c77;
+  border: 1px solid #4b594d;
+  border-radius: 6px;
+  box-shadow: inset 0 2px 4px #0003, 0 1px 0 #ffffff08;
+  color: #a7b89f;
+  transition: border-color .2s, box-shadow .2s;
+}
+.topbar .search:focus-within {
+  border-color: #b5d591;
+  box-shadow: 0 0 0 3px #b5d59115, inset 0 2px 4px #0002;
+}
+.topbar .search input { color: #f0f5ea; outline: none; }
+.topbar .search input::placeholder { color: #a3afa3; }
+.topbar > .button {
+  min-height: 42px;
+  padding: 10px 17px;
+  color: #243421;
+  background: linear-gradient(180deg, #e2f7c4, #bfdd98);
+  border: 1px solid #d5edb5;
+  box-shadow: inset 0 1px 0 #fff9, 0 3px 0 #708c55, 0 5px 10px #0003;
+}
+.topbar > .button:hover { background: linear-gradient(180deg, #edffdb, #cbe9a3); }
+.topbar > .button:active { transform: translateY(2px); box-shadow: inset 0 1px 0 #fff7, 0 1px 0 #708c55; }
+.topbar button:focus-visible, .topbar a:focus-visible { outline-color: #d8f6b5; }
+.sidebar .side-link.active {
+  background: linear-gradient(130deg, #edf5e7, #dce8d2);
+  box-shadow: inset 0 1px 0 #fff, 0 2px 3px #354d2510;
+  border-left: 2px solid #769a61;
+  padding-left: 10px;
+}
+@media (max-width: 1200px) {
+  .topbar { gap: 18px; }
+  .topbar .brand { font-size: 22px; gap: 12px; }
+  .topbar .topnav { margin-left: 0; }
+  .topbar .topnav button { padding: 0 12px; }
+}
+@media (min-width: 761px) and (max-width: 1000px) {
+  .topbar { gap: 12px; }
+  .topbar .brand { font-size: 20px; }
+  .topbar .brand-symbol { width: 46px; height: 46px; font-size: 31px; }
+  .topbar .topnav button { font-size: 11px; padding: 0 9px; }
+  .topbar .search { max-width: 175px; padding: 10px; }
+  .topbar > .button { padding: 9px 12px; gap: 7px; }
+}
+@media (max-width: 760px) {
+  .topbar {
+    height: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 19px 20px 15px;
+    gap: 16px 12px;
+  }
+  .topbar .brand { grid-column: 1; grid-row: 1; }
+  .topbar > .button { grid-column: 2; grid-row: 1; margin-left: 0; }
+  .topbar .brand-symbol { width: 45px; height: 45px; font-size: 30px; border-radius: 10px; }
+  .topbar .brand small { margin-top: 7px; font-size: 8px; }
+  .topbar .topnav { grid-column: 1 / -1; grid-row: 2; width: 100%; margin: 0; height: 43px; }
+  .topbar .topnav button { flex: 1; padding: 0 8px; font-size: 11px; }
+  .topbar .search { grid-column: 1 / -1; grid-row: 3; margin: 0; width: 100%; max-width: none; min-width: 0; padding: 9px 12px; }
+  .topbar::after { left: 20px; }
+  html { scroll-padding-top: 220px; }
+}
+@media (max-width: 380px) {
+  .topbar { padding: 16px 14px 13px; gap: 14px 10px; }
+  .topbar .brand { font-size: 19px; gap: 9px; }
+  .topbar .brand-symbol { width: 40px; height: 40px; font-size: 27px; }
+  .topbar > .button { padding: 8px 10px; min-height: 36px; gap: 6px; font-size: 10px; }
+  .topbar .topnav button { padding: 0 5px; font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .topbar .brand:hover .brand-symbol { transform: none; }
+}

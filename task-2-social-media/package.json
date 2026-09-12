@@ -1,0 +1,30 @@
+{
+  "name": "codealpha-social-media-platform",
+  "version": "1.0.0",
+  "description": "CodeAlpha Task 2 full-stack social media platform with profiles, posts, comments, likes, and follows",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node scripts/verify-api.cjs",
+    "build": "node scripts/build.cjs",
+    "deploy:netlify": "node scripts/deploy-netlify.cjs"
+  },
+  "keywords": [
+    "codealpha",
+    "social-media",
+    "full-stack"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@netlify/blobs": "^11.0.3",
+    "lucide": "^0.468.0",
+    "serverless-http": "^4.0.0",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.45.0",
+    "fflate": "^0.8.3"
+  }
+}
