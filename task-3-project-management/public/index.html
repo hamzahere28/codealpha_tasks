@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#242930" />
+    <meta
+      name="description"
+      content="CodeAlpha Projects. A shared workspace for projects, tasks and conversations."
+    />
+    <title>CodeAlpha Projects</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23087f75'/%3E%3Cpath d='M10 13h20v5H10zm0 9h13v5H10z' fill='%23ffffff'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/vendor/lucide.js" defer></script>
+    <script src="/vendor/sortable.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/app.js" defer></script>
+    <script src="/scene.js" type="module"></script>
+  </head>
+  <body>
+    <section id="auth-screen" class="auth-screen">
+      <div class="auth-content">
+        <a href="/" class="brand"
+          ><span class="brand-symbol"><i data-lucide="layers-2"></i></span
+          ><span>CodeAlpha<span class="brand-sub">PROJECTS</span></span></a
+        >
+        <div class="auth-form-wrap">
+          <span class="eyebrow">YOUR WORKSPACE, AWAITING.</span>
+          <h1 id="auth-title">Good to have<br />you here.</h1>
+          <p id="auth-subtitle">Sign in to your workspace.</p>
+          <form id="auth-form">
+            <label id="name-field" hidden
+              >Full name<input
+                name="name"
+                autocomplete="name"
+                maxlength="70" /></label
+            ><label
+              >Email address<input
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@company.com"
+                required
+                maxlength="160" /></label
+            ><label
+              >Password<span class="password-wrap"
+                ><input
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  minlength="8"
+                  maxlength="128"
+                  required
+                  placeholder="At least 8 characters" /><button
+                  type="button"
+                  class="icon-button"
+                  id="password-toggle"
+                  title="Show password"
+                  aria-label="Show password"
+                >
+                  <i data-lucide="eye"></i></button></span
+            ></label>
+            <p id="auth-error" class="form-error" role="alert"></p>
+            <button class="button primary auth-submit" type="submit">
+              <span id="auth-submit-label">Sign in</span
+              ><i data-lucide="arrow-right"></i>
+            </button>
+          </form>
+          <div class="auth-divider"><span>or take a look around</span></div>
+          <button class="button demo-button" id="demo-login">
+            <i data-lucide="mouse-pointer-2"></i>Explore demo workspace
+          </button>
+          <p class="auth-switch">
+            <span id="auth-switch-copy">New here?</span>
+            <button id="auth-mode">Create an account</button>
+          </p>
+        </div>
+        <footer class="auth-footer">
+          CodeAlpha Projects <span>Good work starts together.</span>
+        </footer>
+      </div>
+      <div class="auth-art">
+        <div class="art-top">
+          <span>THE SHAPE OF WHAT'S NEXT</span><span>01 / WORK IN MOTION</span>
+        </div>
+        <canvas
+          id="workspace-scene"
+          aria-label="Animated three-dimensional project tiles"
+        ></canvas>
+        <div class="art-caption">
+          <h2>Space to think.<br />Momentum to build.</h2>
+          <span class="art-note">Your team. Your next chapter.</span>
+        </div>
+        <button
+          class="icon-button animation-toggle"
+          id="animation-toggle"
+          title="Pause animation"
+          aria-label="Pause animation"
+        >
+          <i data-lucide="pause"></i>
+        </button>
+      </div>
+    </section>
+    <div id="app" class="app" hidden>
+      <header class="topbar">
+        <div class="app-identity">
+          <button
+            id="menu-toggle"
+            class="icon-button"
+            aria-label="Open projects"
+            title="Open projects"
+          >
+            <i data-lucide="panel-left"></i>
+          </button>
+          <button class="brand" data-nav="overview">
+            <span class="brand-symbol"><i data-lucide="workflow"></i></span
+            ><span>CodeAlpha<span class="brand-sub">Projects</span></span>
+          </button>
+        </div>
+        <nav class="main-nav" aria-label="Main navigation">
+          <button data-nav="overview">
+            <i data-lucide="layout-grid"></i><span>Projects</span>
+          </button>
+          <button data-nav="my-tasks">
+            <i data-lucide="circle-check"></i><span>My tasks</span
+            ><span id="my-count" class="nav-count"></span>
+          </button>
+          <button data-nav="inbox">
+            <i data-lucide="inbox"></i><span>Inbox</span
+            ><span id="inbox-count" class="nav-count"></span>
+          </button>
+        </nav>
+        <div class="topbar-right">
+          <button
+            class="global-search"
+            data-action="workspace-search"
+            title="Search workspace"
+            aria-label="Search workspace"
+          >
+            <i data-lucide="search"></i><span>Search workspace</span>
+          </button>
+          <span id="connection" class="connection"
+            ><span></span>Connecting</span
+          >
+          <button
+            class="icon-button notification-button"
+            data-nav="inbox"
+            aria-label="Notifications"
+            title="Notifications"
+          >
+            <i data-lucide="bell"></i><span id="bell-dot"></span>
+          </button>
+          <button
+            class="account-button"
+            data-action="account"
+            aria-label="Your account"
+            title="Your account"
+          >
+            <span id="top-avatar"></span>
+          </button>
+        </div>
+      </header>
+      <button
+        id="sidebar-shade"
+        class="sidebar-shade"
+        aria-label="Close projects"
+        hidden
+      ></button>
+      <aside class="sidebar" id="sidebar" aria-label="Project navigation">
+        <div class="sidebar-heading">
+          <span>Workspace</span
+          ><button
+            class="icon-button"
+            data-action="close-projects"
+            aria-label="Close project navigation"
+          >
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="workspace-label">
+          <span class="workspace-icon">CA</span
+          ><span>CodeAlpha workspace<small>Projects &amp; people</small></span>
+        </div>
+        <div class="nav-label projects-label">
+          YOUR PROJECTS<button
+            class="icon-button"
+            data-action="new-project"
+            title="New project"
+            aria-label="New project"
+          >
+            <i data-lucide="plus"></i>
+          </button>
+        </div>
+        <nav id="project-nav" class="project-nav" aria-label="Projects"></nav>
+        <button class="button sidebar-create" data-action="new-project">
+          <i data-lucide="plus"></i>Create project
+        </button>
+        <div class="sidebar-bottom">
+          <button class="sidebar-help" data-action="team">
+            <i data-lucide="users-round"></i>Project members<i
+              data-lucide="arrow-up-right"
+            ></i>
+          </button>
+          <div class="profile" id="profile"></div>
+        </div>
+      </aside>
+      <div class="app-body">
+        <div class="workspace-breadcrumb">
+          <button data-nav="overview">Workspace</button
+          ><i data-lucide="chevron-right"></i
+          ><strong id="breadcrumb-title">Website relaunch</strong
+          ><span class="workspace-privacy"
+            ><i data-lucide="lock-keyhole"></i>Members only</span
+          >
+        </div>
+        <main id="main"></main>
+        <footer class="app-footer">
+          <span>CodeAlpha Projects</span><span id="footer-status"></span
+          ><button data-action="about">
+            Workspace information<i data-lucide="arrow-up-right"></i>
+          </button>
+        </footer>
+      </div>
+    </div>
+    <dialog id="modal"><div id="modal-content"></div></dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
